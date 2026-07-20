@@ -1,17 +1,14 @@
-const typedText = document.querySelector('#typedText');
-const phrase = 'ganesha invitation';
-let index = 0;
-
-function typeSearch() {
-  if (!typedText || index > phrase.length) return;
-  typedText.textContent = phrase.slice(0, index);
-  index += 1;
-  setTimeout(typeSearch, index === phrase.length + 1 ? 900 : 95);
-}
+const storyBook = document.querySelector('.story-book');
+const openingCaption = document.querySelector('.opening-caption');
 
 window.addEventListener('load', () => {
-  typeSearch();
-  setTimeout(() => document.body.classList.add('site-open'), 3400);
+  storyBook?.classList.add('book-awake');
+
+  setTimeout(() => {
+    if (openingCaption) openingCaption.textContent = 'Turning the page to your celebration...';
+  }, 1700);
+
+  setTimeout(() => document.body.classList.add('site-open'), 4200);
 });
 
 const observer = new IntersectionObserver((entries) => {
